@@ -10,8 +10,8 @@ from thehive import create_case
 from utils import format_description,get_epochdate
 
 
-QRADAR_URL = 'https://qradar-01.bci.co.mz/'
-QRADAR_API_KEY = 'd1e46471-7704-4e23-aa90-4083d2c3bc75'
+QRADAR_URL = 'https://your_host/'
+QRADAR_API_KEY = 'xxxxxxxxxxxxxxx'
 
 # Initalize the API with the URL, your API token and whether the certificate should be checked.
 qradar_api = QRadarApi(QRADAR_URL, QRADAR_API_KEY, version='16.0', verify=False)
