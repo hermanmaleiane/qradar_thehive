@@ -10,19 +10,13 @@ from thehive import create_case
 from utils import format_description,get_epochdate
 
 
-
-THEHIVE_URL = 'http://10.2.28.21:9000/'
-THEHIVE_API_KEY = 'G0wVbUKKoGGa8iCZAb5ghqi0XreTSNaL'
 QRADAR_URL = 'https://qradar-01.bci.co.mz/'
 QRADAR_API_KEY = 'd1e46471-7704-4e23-aa90-4083d2c3bc75'
 
-thehive_api = TheHiveApi(THEHIVE_URL, THEHIVE_API_KEY)
-
 # Initalize the API with the URL, your API token and whether the certificate should be checked.
 qradar_api = QRadarApi(QRADAR_URL, QRADAR_API_KEY, version='16.0', verify=False)
-api = TheHiveApi(THEHIVE_URL, THEHIVE_API_KEY)
 
-# Get all offenses
+# Get all offenses different from closed status in the last 15 minutes
 
 param_filter='status != CLOSED  and start_time>'+str(get_epochdate())
 response = qradar_api.siem.get_offenses(filter=param_filter,  Range='items=0-10')
@@ -42,6 +36,7 @@ for offense_json  in offenses_json_list:
              thehive_description= format_description(description, offense_type,severity,source_network,destination_networks,categories)
              #print(str(start_time))
              create_case(description,thehive_description)
+
 
 
 
