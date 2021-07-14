@@ -12,8 +12,8 @@ import uuid
 from thehive4py.api import TheHiveApi
 from thehive4py.models import Case, CaseTask, CustomFieldHelper
 
-THEHIVE_URL = 'http://10.2.28.21:9000/'
-THEHIVE_API_KEY = 'G0wVbUKKoGGa8iCZAb5ghqi0XreTSNaL'
+THEHIVE_URL = 'http://XXXXX:9000/'
+THEHIVE_API_KEY = 'xxxxxxxxxxxxxxx'
 
 api = TheHiveApi(THEHIVE_URL, THEHIVE_API_KEY)
 
